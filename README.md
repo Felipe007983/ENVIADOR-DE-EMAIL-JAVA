@@ -20,6 +20,25 @@ Uma plataforma de envio de emails a partir de arquivos CSV utilizando Java, Spri
 - Suporte para carregar um arquivo CSV com o padrão `carteira;email`, onde cada linha representa uma carteira e um email, separados por ponto e vírgula.
   
 #### Exemplo de Formato do Arquivo CSV:
-```csv
+csv
 carteira;email
 Santander;fcarmo072@gmail.com
+
+## Tecnologias Utilizadas
+- **Backend:** Java, Spring Boot
+- **Frontend:** HTML, CSS, Bootstrap, Thymeleaf
+- **Banco de Dados:** SQL (com suporte a SQL Server, MySQL, etc.)
+
+## Instalação e Configuração
+
+### Pré-requisitos
+- **Java 11+**
+- **Banco de dados SQL (ex.: SQL Server)**
+- **Maven**
+
+### Passos de Instalação
+
+1. Clone o repositório:
+   bash
+   git clone https://github.com/seuusuario/plataforma-envio-email.git
+
