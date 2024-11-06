@@ -40,5 +40,5 @@ Santander;fcarmo072@gmail.com
 
 1. Clone o repositório:
    bash
-   git clone https://github.com/seuusuario/plataforma-envio-email.git
+   git clone https://github.com/Felipe007983/ENVIADOR-DE-EMAIL-JAVA
 
