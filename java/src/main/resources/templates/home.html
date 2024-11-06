@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 100px;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .page-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .link-container {
+            margin-top: 20px;
+        }
+        .link-container a {
+            display: block;
+            text-decoration: none;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .link-container a:hover {
+            background-color: #0056b3;
+        }
+        .footer-text {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="page-header">
+        Painel de Controle de E-mails
+    </div>
+
+    <p class="text-center">Bem-vindo! Escolha uma das opções abaixo para gerenciar as configurações de e-mail, templates e o envio de mensagens.</p>
+
+    <div class="link-container">
+        <a th:href="@{/email-config}">Configurações de E-mail</a>
+        <a th:href="@{/email-template}">Templates de E-mail</a>
+        <a th:href="@{/send-email-form}">Enviar E-mail</a>
+        <!--<a th:href="@{/email-history}">Relatorios</a>-->
+
+    </div>
+
+    <div class="link-container">
+        <!--<a href="#">Histórico de Envios</a>-->
+    </div>
+
+    <div class="footer-text">
+        &copy; 2024 - Sistema de Gestão de E-mails
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuração de SMTP</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Configuração de SMTP</h1>
+
+    <!-- Formulário para adicionar a configuração SMTP -->
+    <form th:action="@{/email-config}" method="post">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> <!-- Token CSRF -->
+
+        <div class="form-group">
+            <label for="smtpServer">SMTP Server:</label>
+            <input type="text" class="form-control" name="smtpServer" id="smtpServer" required>
+        </div>
+
+        <div class="form-group">
+            <label for="port">Porta:</label>
+            <input type="number" class="form-control" name="port" id="port" required>
+        </div>
+
+        <div class="form-group">
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" class="form-control" name="username" id="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" class="form-control" name="password" id="password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="recipientEmail">Email do Destinatário Padrão:</label>
+            <input type="email" class="form-control" name="recipientEmail" id="recipientEmail" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Salvar Configuração SMTP</button>
+    </form>
+
+    <!-- Lista todas as configurações de SMTP existentes -->
+    <h2 class="mt-5">Configurações de SMTP Existentes</h2>
+    <ul class="list-group">
+        <li th:each="config : ${emailConfigs}" class="list-group-item d-flex justify-content-between align-items-center">
+            <span th:text="${config.smtpServer}"></span>
+            <span class="badge badge-info" th:text="${config.recipientEmail}"></span>
+        </li>
+    </ul>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

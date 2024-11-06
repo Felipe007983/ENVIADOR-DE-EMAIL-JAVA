@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Envio de Email</title>
+    <!-- Link do Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<header class="text-center my-4">
+    <h1 class="display-4 text-dark">Configuração de Envio de Email</h1>
+</header>
+
+<div class="container bg-white p-4 rounded shadow">
+    <form id="emailForm" action="/send-email-action" method="post" enctype="multipart/form-data">
+        <!-- CSRF Token -->
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+        <!-- Seleção de Configuração de Email -->
+        <div class="form-group">
+            <label for="emailConfig">Configuração de Email:</label>
+            <select id="emailConfig" name="configId" class="form-control" required>
+                <option value="">Selecione uma configuração</option>
+                <option th:each="config : ${configs}" th:value="${config.id}" th:text="${config.recipientEmail}"></option>
+            </select>
+        </div>
+
+        <!-- Seleção de Template de Email -->
+        <div class="form-group">
+            <label for="emailTemplate">Template de Email:</label>
+            <select id="emailTemplate" name="templateId" class="form-control" required>
+                <option value="">Selecione um template</option>
+                <option th:each="template : ${templates}" th:value="${template.id}" th:text="${template.title}"></option>
+            </select>
+        </div>
+
+        <!-- Velocidade de Envio -->
+        <div class="form-group">
+            <label for="speed">Velocidade de Envio (emails por segundo):</label>
+            <input type="number" id="speed" name="speed" class="form-control" min="1" max="100" value="10" required>
+        </div>
+
+        <!-- Upload do Arquivo com Emails -->
+        <div class="form-group">
+            <label for="emailFile">Arquivo de Emails (.csv):</label>
+            <input type="file" id="emailFile" name="emailFile" class="form-control" accept=".csv" required>
+        </div>
+
+        <!-- Botão para Iniciar Envio -->
+        <button type="submit" class="btn btn-success btn-block">Iniciar Envio</button>
+    </form>
+</div>
+
+<footer class="text-center mt-4">
+    <p class="text-muted">&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+</footer>
+
+<!-- Scripts do Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Envios de Email</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Relatório de Envios de Email</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+
+            <th>Error Message</th>
+            <th>Recipient</th>
+            <th>Status</th>
+            <th>Carteira</th>
+
+            <th>Email</th>
+            <th>Status de Envio</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="emailHistory : ${emailHistories}">
+            <td th:text="${emailHistory.id}"></td>
+
+            <td th:text="${emailHistory.errorMessage}"></td>
+            <td th:text="${emailHistory.recipient}"></td>
+            <td th:text="${emailHistory.status}"></td>
+            <td th:text="${emailHistory.carteira}"></td>
+            <td th:text="${emailHistory.email}"></td>
+            <td th:text="${emailHistory.statusenvio}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
